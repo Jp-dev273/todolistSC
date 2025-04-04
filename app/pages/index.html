@@ -4,14 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/styles/index.css">
-    <title>To-do list</title>
+    <title>Rabbit To-do list</title>
 </head>
 <body>
-    <h1>Bienvenido!</h1>
-    <div class="contenedor">
-        <h2 class="boxTitle">To do</h2>
-        <div class="agregar">+</div>
-    </div>
+    <!-- Heading -->
+    <header class="header">
+        <img class="logo" src="../assets/images/logo.png" alt="Logo Mr Rabbits">
+    </header>
+   <!-- App Wrapper -->
+	<main class="app">
+		<!-- Greeting -->
+		<section class="greeting">
+			<h2 class="title">
+				Bienvenido <input type="text" id="name" placeholder="Name here" />, estas son tus tareas pendientes
+			</h2>
+		</section>
+		<!-- End of Greeting -->
+		
+		<!-- New Todo -->
+		<section class="create-todo">
+			<h3>CREEMOS NUESTRAS TAREAS</h3>
+			<form id="new-todo-form">
+				<h4>¿Qué deseas planificar?</h4>
+				<input 
+					type="text" 
+					placeholder="Tender la cama"
+					name="content"
+					id="content" />
+				
+                <!-- categories -->
+				<h4>Selecciona una categoría</h4>
+				<div class="options">
+					<label>
+						<input type="radio" name="category" id="category1" value="value1" /> 
+						<span class="bubble category1"></span>
+						<div><input type="text" id="namecategory1" placeholder="Nombra esta categoría" /></div>
+					</label>
+                    <label>
+						<input type="radio" name="category" id="category2" value="value2" /> 
+						<span class="bubble category2"></span>
+						<div><input type="text" id="namecategory2" placeholder="Nombra esta categoría" /></div>
+					</label>
+                    <label>
+						<input type="radio" name="category" id="category3" value="value3" /> 
+						<span class="bubble category3"></span>
+						<div><input type="text" id="namecategory3" placeholder="Nombra esta categoría" /></div>
+					</label>
+					
+				</div>
+
+				<input type="submit" value="Add todo" />
+			</form>
+		</section>
+		<!-- End of New Todo -->
+
+		<!-- Todo List -->
+		<section class="todo-list">
+			<h3>TODO LIST</h3>
+			<div class="list" id="todo-list">
+                <!-- here will be the todos -->
+            </div>
+		</section>
+		<!-- End of Todo List -->
+
+	</main>
+	<!-- End of App Wrapper -->
+
+	<!-- JS Import -->
+
+
+
     <script src="../tasks.js"></script>
 </body>
 </html>
