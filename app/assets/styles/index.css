@@ -5,16 +5,19 @@
 /* Variables CSS */
 :root {
     /* colors */
-    /* Brand colors */
-   /* --dark-purple-color: hsl(285deg, 16%, 60%);*/
+    --primary: #b143d6;
+	--categoria1: #3a82ee;
+	--categoria2: var(--primary);
+    --categoria3: #ed37e7;
+	--light: #EEE;
+	--grey: #888;
+	--dark: #262626;
+	--danger: #ff5b57;
+	--shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	--categoria1-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
+	--categoria2-glow: 0px 0px 4px rgba(23, 114, 130, 0.75);
+    --categoria3-glow: 0px 0px 4px rgba(237, 55, 231, 0.75);
 
-
-    /* Header and footer colors*/
-    /* Footer's links area */
-    /*--background-FLA-color: rgba(255, 252, 247, 100%);*/
-
-    /* Footer's copyright area*/
-    /*--background-FCA-color: rgba(255, 229, 180, 60%);*/
 
     /* Font Sizes */
     --h1-font-size: 2rem;
@@ -53,12 +56,20 @@
     /* With this setting we ensure padding and borders are included within an element's total width and height */
 }
 
-body {
-    color: var(--black-color);
+header{
     display: flex;
-    flex-direction: column;
-    margin: auto;
-    padding: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.hero{
+    height: 350px;
+    display: flex;
+    justify-content: center;
+}
+.logo{
+    width: 250px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -66,16 +77,242 @@ h1, h2, h3, h4, h5, h6 {
     font-family: Poppins;
     font-weight: var(--Tittle-font-semibold);
 }
-.contenedor{
-    background-color: bisque;
-    margin-top: 20px;
-    width: 500px;
-    height: 500px;
-    text-align: center;
-    border-radius: 10px;
-    margin: 0 auto;
+/* Resets */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
-.agregar{
-    background-color: rgba(255, 255, 255, 0.323);
-    border-radius: 50%;
+
+input:not([type="radio"]):not([type="checkbox"]), button {
+	appearance: none;
+	border: none;
+	outline: none;
+	background: none;
+	cursor: initial;
+}
+/* End of Resets */
+
+body {
+	background: var(--light);
+	color: var(--dark);
+}
+
+section {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+
+h3 {
+	color: var(--dark);
+	font-size: 1rem;
+	font-weight: 400;
+	margin-bottom: 0.5rem;
+}
+
+h4 {
+	color: var(--grey);
+	font-size: 0.875rem;
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+}
+.greeting{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.greeting .title {
+	display: flex; /* to align the input and the label side by side */
+}
+
+.greeting .title input {
+	margin-left: 0.5rem;
+	flex: 1 1 0%;
+	min-width: 0;
+}
+
+.greeting .title, 
+.greeting .title input {
+	color: var(--dark);
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+.create-todo input[type="text"] {
+	display: block;
+	width: 100%;
+	font-size: 1.125rem;
+	padding: 1rem 1.5rem;
+	color: var(--dark);
+	background-color: #FFF;
+	border-radius: 0.5rem;
+	box-shadow: var(--shadow);
+	margin-bottom: 1.5rem;
+}
+
+.create-todo .options {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+.create-todo .options label {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #FFF;
+	padding: 1.5rem;
+	box-shadow: var(--shadow);
+	border-radius: 0.5rem;
+	cursor: pointer;
+}
+
+/* Hide the default radio and checkbox inputs to replace them with custom ones */
+input[type="radio"],
+input[type="checkbox"] {
+	display: none;
+}
+
+/* Custom radio and checkbox styles */
+.bubble {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	border-radius: 999px;
+	border: 2px solid var(--categoria1);
+	box-shadow: var(--categoria1-glow);
+}
+
+.bubble.category2 {
+	border-color: var(--categoria2);
+	box-shadow: var(--categoria2-glow);
+}
+.bubble.category3 {
+	border-color: var(--categoria3);
+	box-shadow: var(--categoria3-glow);
+}
+
+/* Custom radio and checkbox styles when checked */
+.bubble::after {
+	content: '';
+	display: block;
+	opacity: 0;
+	width: 0px;
+	height: 0px;
+	background-color: var(--categoria1);
+	box-shadow: var(--categoria1-glow);
+	border-radius: 999px;
+	transition: 0.2s ease-in-out;
+}
+
+.bubble.category2::after {
+	background-color: var(--categoria2);
+	box-shadow: var(--categoria2-glow);
+}
+
+.bubble.category3::after {
+	background-color: var(--categoria3);
+	box-shadow: var(--categoria3-glow);
+}
+
+/* Show the custom radio and checkbox styles when checked */
+input:checked ~ .bubble::after {
+	width: 10px;
+	height: 10px;
+	opacity: 1;
+}
+
+.create-todo .options label div {
+	color: var(--dark);
+	font-size: 1.125rem;
+	margin-top: 1rem;
+}
+
+/*This is the submit button style*/
+.create-todo input[type="submit"] {
+	display: block;
+	width: 100%;
+	font-size: 1.125rem;
+	padding: 1rem 1.5rem;
+	color: #FFF;
+	font-weight: 700;
+	text-transform: uppercase;
+	background-color: var(--primary);
+	box-shadow: var(--categoria2-glow);
+	border-radius: 0.5rem;
+	cursor: pointer;
+	transition: 0.2s ease-out;
+}
+
+.create-todo input[type="submit"]:hover {
+	opacity: 0.75;
+}
+
+/*This is the todo list style*/
+.todo-list .list {
+	margin: 1rem 0;
+}
+
+.todo-list .todo-item {
+	display: flex;
+	align-items: center;
+	background-color: #FFF;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	box-shadow: var(--shadow);
+	margin-bottom: 1rem;
+}
+
+.todo-item label {
+	display: block;
+	margin-right: 1rem;
+	cursor: pointer;
+}
+
+.todo-item .todo-content {
+	flex: 1 1 0%; /* to allow the content to grow and shrink and pushes the buttons to the end */
+}
+
+.todo-item .todo-content input {
+	color: var(--dark);
+	font-size: 1.125rem;
+}
+
+.todo-item .actions {
+	display: flex;
+	align-items: center;
+}
+
+.todo-item .actions button {
+	display: block;
+	padding: 0.5rem;
+	border-radius: 0.25rem;
+	color: #FFF;
+	cursor: pointer;
+	transition: 0.2s ease-in-out;
+}
+
+.todo-item .actions button:hover {
+	opacity: 0.75;
+}
+
+.todo-item .actions .edit {
+	margin-right: 0.5rem;
+	background-color: var(--primary);
+}
+
+.todo-item .actions .delete {
+	background-color: var(--danger);
+}
+
+.todo-item.done .todo-content input {
+	text-decoration: line-through;
+	color: var(--grey);
 }
