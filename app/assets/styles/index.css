@@ -1,6 +1,6 @@
 /* Google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* Variables CSS */
 :root {
@@ -12,7 +12,7 @@
 	--light: #e6bcd862;
 	--grey: #908e8e;
 	--dark: #262626;
-	--danger: #ff5b57;
+	--danger: hotpink;
 	--shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 	--categoria1-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
 	--categoria2-glow: 0px 0px 4px rgba(23, 114, 130, 0.75);
@@ -50,10 +50,18 @@
     elements, this way, unwanted gaps are eliminated */
     margin: 0;
     padding: 0;
-    font-family: montserrat;
+    font-family: Montserrat;
     font-weight: var(--font-normal);
     box-sizing: border-box;
     /* With this setting we ensure padding and borders are included within an element's total width and height */
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
 }
 
 header{
